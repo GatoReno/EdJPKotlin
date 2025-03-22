@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -17,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.ui.theme.MyApplicationTheme
+import com.example.myapplication.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,37 +37,46 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column{
+
         Text(
             text = "Hello $name!",
             modifier = modifier
         )
         MyText(name = "ED")
         ObservableBtn()
-    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     MyApplicationTheme {
-        Greeting("Android")
+        Column {
+            Greeting("Android")
+        }
+
     }
 }
 
 @Composable
-fun  MyText(name: String)
-{
-Text(text = "Hello$name!")
+fun MyText(name: String) {
+    Text(
+        text = "Hello$name!",
+        style = Typography.labelLarge
+    )
 }
 
 @Composable
-fun ObservableBtn(){
+fun ObservableBtn() {
     var myVal = remember { mutableStateOf(false) }
-
+    Log.d("recomp","mycomposible")
     Button(onClick = { myVal.value = !myVal.value }) {
-        Text(text = if(myVal.value) "True" else "False")
+        Text(text = if (myVal.value) "True" else "False")
+        Log.d("recomp","button content by lambda")
+
     }
 }

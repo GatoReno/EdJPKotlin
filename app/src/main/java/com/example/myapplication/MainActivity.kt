@@ -39,15 +39,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    BoxGreeting()
+                Surface(modifier = Modifier.padding(top = 30.dp, bottom = 30.dp),
+                    color = MaterialTheme.colorScheme.background) {
+                   ExpandableCard()
                 }
 
             }
         }
     }
 }
+@Composable
+fun ObservableBtn() {
+    var myVal = remember { mutableStateOf(false) }
+    Log.d("recomp", "mycomposible")
+    Button(onClick = { myVal.value = !myVal.value }) {
+        Text(text = if (myVal.value) "True" else "False")
+        Log.d("recomp", "button content by lambda")
 
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun BoxGreeting() {
@@ -98,13 +108,5 @@ fun Greeting( ) {
 //    )
 //}
 //
-//@Composable
-//fun ObservableBtn() {
-//    var myVal = remember { mutableStateOf(false) }
-//    Log.d("recomp", "mycomposible")
-//    Button(onClick = { myVal.value = !myVal.value }) {
-//        Text(text = if (myVal.value) "True" else "False")
-//        Log.d("recomp", "button content by lambda")
-//
-//    }
+
 

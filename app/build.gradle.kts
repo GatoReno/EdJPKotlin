@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    //kotlin("kapt")
 }
 
 android {
@@ -66,4 +67,37 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+
+    //  Dagger Hilt
+    implementation ("com.google.dagger:hilt-android:2.46.1")
+   // kapt ("com.google.dagger:hilt-compiler:2.46.1")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:2.6.0")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Coil
+    implementation ("io.coil-kt:coil-compose:1.4.0")
+
+    // Jetpack Compose
+    implementation("androidx.compose.ui:ui:1.4.0")
+    implementation("androidx.compose.material3:material3:1.0.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
+    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation("androidx.navigation:navigation-common:2.8.9")
+    // Room
+    implementation("androidx.room:room-runtime:2.5.0")
+    //kapt("androidx.room:room-compiler:2.5.0")
+    implementation("androidx.room:room-ktx:2.5.0")
+
+    // Coroutine
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // Testing
+    debugImplementation("androidx.compose.ui:ui-tooling:1.4.0")
 }

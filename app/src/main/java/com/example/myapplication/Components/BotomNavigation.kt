@@ -15,7 +15,7 @@ import com.example.myapplication.Navigation.Routes
 @Composable
 fun BottomNav(navHostController: NavController, routes: List<Routes>){
     BottomAppBar {
-        NavigationBar (containerColor = Color.White){
+        NavigationBar (){
             val currentRoute = CurrentRoute(navHostController)
             routes.forEach{item->
                 NavigationBarItem(selected = currentRoute == item.route, onClick = {
